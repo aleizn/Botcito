@@ -1,15 +1,15 @@
 let handler  = async (m, { conn }) => {
-conn.reply(m.chat,`*┌────「 𝚁𝙴𝚃𝙾 」─*\n*“${pickRandom(global.bucin)}”*\n*└────「 @clan_mafia_chilena 」─*`, m)
+conn.reply(m.chat,`*┌────「 𝚁𝙴𝚃𝙾 」─*\n*“${pickRandom(global.bucin)}”*\n*└────「 𝙼𝚈𝚂𝚃𝙸𝙲 」─*`, m)
 }
 handler.help = ['reto']
 handler.tags = ['fun']
 handler.command = /^reto/i
 export default handler
-
+ 
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
-
+  
 global.bucin = [
 "Pasa el pack de una hormiga",
 "Dile a tus amigos que te vas a vivir a EU y mándame una captura de lo que te haya dicho",
@@ -19,7 +19,7 @@ global.bucin = [
 "Envíame una fotografía tuya",
 "Debes de dibujar en alguna parte de tu cuerpo el nombre de algún integrante del grupo, luego realiza una foto y envíala",
 "Hazte una foto dándole un beso a una Televisión",
- "Mándame una fotografía en ropa interior",
+"Mándame una fotografía en ropa interior",
 "Escribe en tu estado de WhatsApp que te gusta comer tierra",
 "Debes de poner la fotografía de un participante del grupo que sea del sexo opuesto al tuyo en tu perfil de WhatsApp durante 3 días 📸📸",
 "Tienes que mandar un audio cantando la canción: Un pato que va cantando alegremente cua cua 🦆",
