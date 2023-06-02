@@ -5,7 +5,7 @@ const { levelling } = '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
 import { promises } from 'fs'
 import { join } from 'path'
-let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text }) => {
+let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems }) => {
 try {
 let vn = './media/menu.mp3'
 let pp = imagen4
@@ -26,7 +26,7 @@ let readMore = more.repeat(850)
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
 ╭═══〘 ✯✯✯✯✯✯✯✯✯ 〙══╮
-║ ◉— *𝐀𝐥𝐞𝐢𝐳𝐧-𝐌𝐃* —◉
+║    ◉— *𝐀𝐥𝐞𝐢𝐳𝐧-𝐌𝐃* —◉
 ║≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡║
 ║➤ *𝗛ola, ${taguser}*
 ║≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡║
@@ -46,9 +46,9 @@ let str = `
 ┣ *🧰 Experiencia:* ${exp}
 ┣ *⚓ Rango:* ${role}
 ┣ *💎 Diamantes:* ${limit}
-┣ *👾 MCCoins:* ${money}
+┣ *👾 MysticCoins:* ${money}
 ┣ *🪙 Tokens:* ${joincount}
-┣ *🎟️ Premium:* ${user.premiumTime > 0 ? '✅' : '❌'}
+┣ *🎟️ Premium:* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''}
 ┗━━━━━━━━━━━━━━━━┛
 ${readMore}
 ┏━━━━━━━━━━━━━━━━┓
@@ -69,6 +69,7 @@ ${readMore}
 ┣ ඬ⃟ 💟 _${usedPrefix}grouplist_
 ┣ ඬ⃟ 💟 _${usedPrefix}owner_
 ┣ ඬ⃟ 💟 _${usedPrefix}script_
+┣ ඬ⃟ 💟 _${usedPrefix}listprem_
 ┣ ඬ⃟ 💟 _Bot_ (𝑢𝑠𝑜 𝑠𝑖𝑛 𝑝𝑟𝑒𝑓𝑖𝑗𝑜)
 ┗━━━━━━━━━━━━━━━━┛
 
@@ -99,6 +100,15 @@ ${readMore}
 ┣ ඬ⃟ 🎖️ _${usedPrefix}pajera *<nombre / @tag>*_
 ┣ ඬ⃟ 🎖️ _${usedPrefix}puto *<nombre / @tag>*_
 ┣ ඬ⃟ 🎖️ _${usedPrefix}puta *<nombre / @tag>*_
+┣ ඬ⃟ 🎖️ _${usedPrefix}peruano <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}peruana <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}boliviano <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}boliviana <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}chileno <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}chilena <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}argentina <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}argentino <nombre / @tag>
+┣ ඬ⃟ 🎖️ _${usedPrefix}manco <nombre / @tag>
 ┣ ඬ⃟ 🎖️ _${usedPrefix}manco *<nombre / @tag>*_
 ┣ ඬ⃟ 🎖️ _${usedPrefix}manca *<nombre / @tag>*_
 ┣ ඬ⃟ 🎖️ _${usedPrefix}rata *<nombre / @tag>*_
@@ -119,6 +129,7 @@ ${readMore}
 ┣ ඬ⃟ 🎖️ _${usedPrefix}reto_
 ┣ ඬ⃟ 🎖️ _${usedPrefix}cancion_
 ┣ ඬ⃟ 🎖️ _${usedPrefix}pista_
+┣ ඬ⃟ 🎖️ _${usedPrefix}akinator_
 ┗━━━━━━━━━━━━━━━━┛
 
 ┏━━━━━━━━━━━━━━━━┓
@@ -160,10 +171,7 @@ ${readMore}
 ┃ *< 𝔻𝔼𝕊ℂ𝔸ℝ𝔾𝔸𝕊 />*
 ┃≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡┃
 ┣ ඬ⃟ 📥 _${usedPrefix}instagram *<enlace / link / url>*_
-┣ ඬ⃟ 📥 _${usedPrefix}instagram2 *<enlace / link / url>*_
-┣ ඬ⃟ 📥 _${usedPrefix}instagram3 *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}mediafire *<enlace / link / url>*_
-┣ ඬ⃟ 📥 _${usedPrefix}instagram *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}gitclone *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}gdrive *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}tiktok *<enlace / link / url>*_
@@ -171,14 +179,11 @@ ${readMore}
 ┣ ඬ⃟ 📥 _${usedPrefix}xvideosdl *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}twitter *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}fb *<enlace / link / url>*_
-┣ ඬ⃟ 📥 _${usedPrefix}fb2 *<enlace / link / url>*_
-┣ ඬ⃟ 📥 _${usedPrefix}fb3 *<enlace / link / url>*_
-┣ ඬ⃟ 📥 _${usedPrefix}fb4 *<enlace / link / url>*_
-┣ ඬ⃟ 📥 _${usedPrefix}fb5 *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}ytmp3 *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}ytmp4 *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}ytmp3doc *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}ytmp4doc *<enlace / link / url>*_
+┣ ඬ⃟ 📥 _${usedPrefix}videodoc *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}dapk2 *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}stickerpack *<enlace / link / url>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}play *<texto>*_
@@ -188,7 +193,6 @@ ${readMore}
 ┣ ඬ⃟ 📥 _${usedPrefix}playlist *<texto>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}playlist2 *<texto>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}spotify *<texto>*_
-┣ ඬ⃟ 📥 _${usedPrefix}stickerly *<texto>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}ringtone *<texto>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}soundcloud *<texto>*_
 ┣ ඬ⃟ 📥 _${usedPrefix}imagen *<texto>*_
@@ -218,20 +222,6 @@ ${readMore}
 ┣ ඬ⃟ 💎 _${usedPrefix}infogroup_
 ┣ ඬ⃟ 💎 _${usedPrefix}resetlink_
 ┣ ඬ⃟ 💎 _${usedPrefix}link_
-┣ ඬ⃟ 💎 _${usedPrefix}fem18_
-┣ ඬ⃟ 💎 _${usedPrefix}fem19_
-┣ ඬ⃟ 💎 _${usedPrefix}fem20_
-┣ ඬ⃟ 💎 _${usedPrefix}fem21_
-┣ ඬ⃟ 💎 _${usedPrefix}fem22_
-┣ ඬ⃟ 💎 _${usedPrefix}fem23_
-┣ ඬ⃟ 💎 _${usedPrefix}fem00_
-┣ ඬ⃟ 💎 _${usedPrefix}masc18_
-┣ ඬ⃟ 💎 _${usedPrefix}masc19_
-┣ ඬ⃟ 💎 _${usedPrefix}masc20_
-┣ ඬ⃟ 💎 _${usedPrefix}masc21_
-┣ ඬ⃟ 💎 _${usedPrefix}masc22_
-┣ ඬ⃟ 💎 _${usedPrefix}masc23_
-┣ ඬ⃟ 💎 _${usedPrefix}masc00_
 ┣ ඬ⃟ 💎 _${usedPrefix}setname *<texto>*_
 ┣ ඬ⃟ 💎 _${usedPrefix}setdesc *<texto>*_
 ┣ ඬ⃟ 💎 _${usedPrefix}invocar *<texto>*_
@@ -252,6 +242,7 @@ ${readMore}
 ┏━━━━━━━━━━━━━━━━┓
 ┃ *< ℂ𝕆ℕ𝕍𝔼ℝ𝕋𝕀𝔻𝕆ℝ𝔼𝕊 />*
 ┃≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡┃
+┣ ඬ⃟ 🧧 _${usedPrefix}toanime *<imagen>*_
 ┣ ඬ⃟ 🧧 _${usedPrefix}togifaud *<video>*_
 ┣ ඬ⃟ 🧧 _${usedPrefix}toimg *<sticker>*_
 ┣ ඬ⃟ 🧧 _${usedPrefix}tomp3 *<video>*_
@@ -293,6 +284,8 @@ ${readMore}
 ┣ ඬ⃟ 👾 _${usedPrefix}kpop *<blackpink / exo / bts>*_
 ┣ ඬ⃟ 👾 _${usedPrefix}cristianoronaldo_
 ┣ ඬ⃟ 👾 _${usedPrefix}messi_
+┣ ඬ⃟ 👾 _${usedPrefix}cat_
+┣ ඬ⃟ 👾 _${usedPrefix}dog_
 ┣ ඬ⃟ 👾 _${usedPrefix}meme_
 ┣ ඬ⃟ 👾 _${usedPrefix}itzy_
 ┣ ඬ⃟ 👾 _${usedPrefix}blackpink_
@@ -423,6 +416,8 @@ ${readMore}
 ┏━━━━━━━━━━━━━━━━┓
 ┃ *< 𝔹𝕌𝕊ℂ𝔸𝔻𝕆ℝ𝔼𝕊 />*
 ┃≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡┃
+┣ ඬ⃟ 🔍 _${usedPrefix}cuevana *<texto>*_
+┣ ඬ⃟ 🔍 _${usedPrefix}pelisplus *<texto>*_
 ┣ ඬ⃟ 🔍 _${usedPrefix}modapk *<texto>*_
 ┣ ඬ⃟ 🔍 _${usedPrefix}stickersearch *<texto>*_
 ┣ ඬ⃟ 🔍 _${usedPrefix}stickersearch2 *<texto>*_
@@ -488,6 +483,8 @@ ${readMore}
 ┃ *< ℍ𝔼ℝℝ𝔸𝕄𝕀𝔼ℕ𝕋𝔸𝕊 />*
 ┃≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡┃
 ┣ ඬ⃟ 🛠️ _${usedPrefix}chatgpt *<texto>*_
+┣ ඬ⃟ 🛠️ _${usedPrefix}chatgpt2 *<texto>*_
+┣ ඬ⃟ 🛠️ _${usedPrefix}delchatgpt
 ┣ ඬ⃟ 🛠️ _${usedPrefix}dall-e *<texto>*_
 ┣ ඬ⃟ 🛠️ _${usedPrefix}spamwa *<numero|texto|cantidad>*_
 ┣ ඬ⃟ 🛠️ _${usedPrefix}tamaño *<cantidad> <imagen / video>*_
@@ -538,9 +535,12 @@ ${readMore}
 ┃≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡┃
 ┣ ඬ⃟ 👽 _${usedPrefix}sticker *<responder a imagen o video>*_
 ┣ ඬ⃟ 👽 _${usedPrefix}sticker *<enlace / link / url>*_
+┣ ඬ⃟ 👽 _${usedPrefix}sticker2 *<responder a imagen o video>*_
+┣ ඬ⃟ 👽 _${usedPrefix}sticker2 *<enlace / link / url>*_
 ┣ ඬ⃟ 👽 _${usedPrefix}s *<responder a imagen o video>*_
 ┣ ඬ⃟ 👽 _${usedPrefix}s *<enlace / link / url>*_
-┣ ඬ⃟ 👽 _${usedPrefix}sfull *<imagen o video>*_
+┣ ඬ⃟ 👽 _${usedPrefix}s2 *<responder a imagen o video>*_
+┣ ඬ⃟ 👽 _${usedPrefix}s2 *<enlace / link / url>*_
 ┣ ඬ⃟ 👽 _${usedPrefix}emojimix *<emoji 1>&<emoji 2>*_
 ┣ ඬ⃟ 👽 _${usedPrefix}scircle *<imagen>*_
 ┣ ඬ⃟ 👽 _${usedPrefix}sremovebg *<imagen>*_
@@ -569,6 +569,7 @@ ${readMore}
 ┣ ඬ⃟ 👑 => *<funcion>*
 ┣ ඬ⃟ 👑 $ *<funcion>*
 ┣ ඬ⃟ 👑 _${usedPrefix}setprefix *<prefijo>*_
+┣ ඬ⃟ 👑 _${usedPrefix}desactivarwa *<numero>*_
 ┣ ඬ⃟ 👑 _${usedPrefix}resetprefix_
 ┣ ඬ⃟ 👑 _${usedPrefix}autoadmin_
 ┣ ඬ⃟ 👑 _${usedPrefix}leavegc_
@@ -611,9 +612,11 @@ ${readMore}
 ┣ ඬ⃟ 👑 _${usedPrefix}restart_
 ┣ ඬ⃟ 👑 _${usedPrefix}update_
 ┣ ඬ⃟ 👑 _${usedPrefix}banlist_
-┣ ඬ⃟ 👑 _${usedPrefix}addprem *<@tag>*_
+┣ ඬ⃟ 👑 _${usedPrefix}addprem *<@tag> <tiempo>*_
+┣ ඬ⃟ 👑 _${usedPrefix}addprem2 *<@tag> <tiempo>*_
+┣ ඬ⃟ 👑 _${usedPrefix}addprem3 *<@tag> <tiempo>*_
+┣ ඬ⃟ 👑 _${usedPrefix}addprem4 *<@tag> <tiempo>*_
 ┣ ඬ⃟ 👑 _${usedPrefix}delprem *<@tag>*_
-┣ ඬ⃟ 👑 _${usedPrefix}listprem_
 ┣ ඬ⃟ 👑 _${usedPrefix}listcmd_
 ┣ ඬ⃟ 👑 _${usedPrefix}setppbot *<responder a imagen>*_
 ┣ ඬ⃟ 👑 _${usedPrefix}addcmd *<texto> <responder a sticker/imagen>*_
@@ -650,10 +653,10 @@ externalAdReply: {
 showAdAttribution: true,
 mediaType: 'VIDEO',
 mediaUrl: null,
-title: '@Aleizn',
+title: '👑 𝐓𝐇𝐄 𝐌𝐘𝐒𝐓𝐈𝐂 - 𝐁𝐎𝐓 👑',
 body: null,
 thumbnail: img,
-sourceUrl: `https://wa.me/+51992621601`
+sourceUrl: `https://www.paypal.me/TheShadowBrokers133`
 }}}
 conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 //await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})

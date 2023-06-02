@@ -60,6 +60,54 @@ _*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', 
 `.trim(), m, m.mentionedJid ? {
 mentions: m.mentionedJid
 } : {})}
+if (command == 'peruano') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 🦜, ESCONDAN LAS PALOMAS XD*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
+if (command == 'peruana') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 🦜, ESCONDAN LAS PALOMAS XD*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
+if (command == 'chileno') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 😠, 𝙷𝙰𝙱𝙻𝙰 𝙳𝙴𝚂𝙿𝙰𝙲𝙸𝙾 𝙼𝙰𝚁𝙰𝙲𝙰 𝙺𝙻𝙸𝙳𝙰 .𝙽𝙾 𝚂𝙴 𝚃𝙴 𝙴𝙽𝚃𝙸𝙴𝙽𝙳𝙴*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
+if (command == 'chilena') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 😠, 𝙷𝙰𝙱𝙻𝙰 𝙳𝙴𝚂𝙿𝙰𝙲𝙸𝙾 𝙼𝙰𝚁𝙰𝙲𝙰 𝙺𝙻𝙸𝙳𝙰 .𝙽𝙾 𝚂𝙴 𝚃𝙴 𝙴𝙽𝚃𝙸𝙴𝙽𝙳𝙴*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
+if (command == 'argentino') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 🤑, 𝙳𝙾𝙽𝙴𝙽𝙻𝙴 𝙿𝙰𝚁𝙰 𝚀𝚄𝙴 𝙲𝙾𝙼𝙰 𝙰𝙻 𝙼𝙴𝙽𝙾𝚂 𝚄𝙽 𝙳𝙸𝙰 𝙰𝙻 𝙰𝚁𝙶𝙴𝙽𝚃𝙸𝙽𝙾*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
+if (command == 'argentina') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 🤑, 𝙳𝙾𝙽𝙴𝙽𝙻𝙴 𝙿𝙰𝚁𝙰 𝚀𝚄𝙴 𝙲𝙾𝙼𝙰 𝙰𝙻 𝙼𝙴𝙽𝙾𝚂 𝚄𝙽 𝙳𝙸𝙰 𝙰𝙻 𝙰𝚁𝙶𝙴𝙽𝚃𝙸𝙽𝙰*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
+if (command == 'boliviano') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 🐟, 𝙼𝙰𝙽𝙳𝙴𝙽𝙻𝙴 𝚄𝙽 𝙻𝙸𝙽𝙺 𝙰𝙻 𝙱𝙾𝙻𝙸𝚅𝙸𝙰𝙽𝙾 𝙿𝙰𝚁𝙰 𝚀𝚄𝙴 𝙽𝙰𝚅𝙴𝙶𝙴, 𝙰𝚅𝙴𝚁 𝚂𝙸 𝚄𝙽 𝙳𝙸𝙰 𝙻𝙾 𝙷𝙰𝙲𝙴 𝙴𝙽 𝚄𝙽 𝙼𝙰𝚁🌊*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
+if (command == 'boliviana') {
+conn.reply(m.chat, `
+_*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 🐟, 𝙼𝙰𝙽𝙳𝙴𝙽𝙻𝙴 𝚄𝙽 𝙻𝙸𝙽𝙺 𝙰𝙻𝙰 𝙱𝙾𝙻𝙸𝚅𝙸𝙰𝙽𝙰 𝙿𝙰𝚁𝙰 𝚀𝚄𝙴 𝙽𝙰𝚅𝙴𝙶𝙴, 𝙰𝚅𝙴𝚁 𝚂𝙸 𝚄𝙽 𝙳𝙸𝙰 𝙻𝙾 𝙷𝙰𝙲𝙴 𝙴𝙽 𝚄𝙽 𝙼𝙰𝚁🌊*_
+`.trim(), m, m.mentionedJid ? {
+mentions: m.mentionedJid
+} : {})}
 if (command == 'prostituta') {
 conn.reply(m.chat, `
 _*${text.toUpperCase()}* *ES* *${(500).getRandom()}%* *${command.replace('how', '').toUpperCase()} 🫦👅, QUIEN QUIERE DE SUS SERVICIOS? XD*_
